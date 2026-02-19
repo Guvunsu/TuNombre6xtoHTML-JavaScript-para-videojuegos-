@@ -14,6 +14,16 @@ const foodBorder = "black";
 const unitSize = 25;
 //nuevo
 const playBtn = document.querySelector("#playBtn");
+
+const recordName = document.querySelector("#recordName");
+const recordScore = document.querySelector("#recordScore");
+
+let bestScore = localStorage.getItem("bestScore") || 0;
+let bestPlayer = localStorage.getItem("bestPlayer") || "---";
+
+recordName.textContent = bestPlayer;
+recordScore.textContent = bestScore;
+
 // variables de logica de juego
 let runinggame = false;
 let xVelocity = unitSize;
@@ -33,6 +43,7 @@ let timeOut;
 window.addEventListener("keydown", changeDirection);
 window.addEventListener("click", checkAndSaveScore)//nuevo
 resetBtn.addEventListener("click", startFromButton);
+playBtn.addEventListener("click", startFromButton);
 //gameStart();
 //----------------------------------------------------------------------------------------------
 function startFromButton(){
@@ -193,23 +204,33 @@ function checkGameOver() {
 }
 //------------------------------------------------------------------------------------------------
 function displayGameOver() {
+
+  runinggame = false;
   playBtn.disabled = false;
+
   ctx.font = "70px Arial";
   ctx.fillStyle = "red";
-  ctx.texAlign = "center";
-  ctx.fillText("GameOver", gameWidth / 2, gameHeight / 2);
-  runinggame = false;
-  if (!runinggame) {
-    highScore = score;
-    highScoreText.textContent = "highScore:" + highScore;
-    localStorage.setItem("snakeHighScore", highScore);
+  ctx.textAlign = "center";
+  ctx.fillText("Game Over", gameWidth / 2, gameHeight / 2);
+
+  const currentPlayer = localStorage.getItem("snakePlayer") || "Unknown";
+
+  if(score > bestScore){
+
+      bestScore = score;
+      bestPlayer = currentPlayer;
+
+      localStorage.setItem("bestScore", bestScore);
+      localStorage.setItem("bestPlayer", bestPlayer);
+
+      recordName.textContent = bestPlayer;
+      recordScore.textContent = bestScore;
   }
 }
+
 //------------------------------------------------------------------------------------------
 function checkAndSaveScore() {
-  if (scoreText === null || highScore > parseInt(scoreText)) {
-    localStorage.setItem("snakeHighScore", highScore);
-  }
+ localStorage.setItem("snakeHighScore", bestScore);
 }
 //-----------------------------------------------------------------------------------------
 function resetGame() {
