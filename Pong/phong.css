@@ -1,0 +1,9 @@
+body{
+    text-align: center;
+    border-color: aqua;
+}
+#board{
+background-color: black;
+border-top: 5px solid aquamarine;
+border-bottom: 5px solid aquamarine;
+}
