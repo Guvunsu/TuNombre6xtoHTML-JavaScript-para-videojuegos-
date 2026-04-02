@@ -7,3 +7,11 @@ background-color: black;
 border-top: 5px solid aquamarine;
 border-bottom: 5px solid aquamarine;
 }
+h1{
+    font-size: 50px;
+    font-family:sans-serif;
+    color: aquamarine;
+}
+#resetBtn{
+    background-color: aquamarine;
+}

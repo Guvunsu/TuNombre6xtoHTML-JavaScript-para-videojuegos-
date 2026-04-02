@@ -2,6 +2,7 @@ let board;
 let boadWidth = 500;
 let boadHeight = 500;
 let context;
+let restartButton;
 
 let playerWidth = 10;
 let playerHeight = 50;
@@ -34,9 +35,13 @@ let ball = {
   velocityX: 1,
   velocityY: 2,
 };
+let player2Score = 0;
+let player1Score = 0;
+
 //--------------------------------------------------------------------------
 window.onload = function () {
   board = document.getElementById("board");
+  restartButton = document.querySelector("#resetBtn");
   board.height = boadHeight;
   board.width = boadWidth;
   context = board.getContext("2d");
@@ -46,7 +51,9 @@ window.onload = function () {
   context.fillRect(player1.x, player1.y, player1.width, player1.height);
   this.requestAnimationFrame(update);
   document.addEventListener("keyup", movePlayer);
+  restartButton.addEventListener("click", newGame);
 };
+
 //---------------------------------------------------------------------------
 function update() {
   requestAnimationFrame(update);
@@ -74,6 +81,38 @@ function update() {
   context.fillRect(ball.x, ball.y, ball.width, ball.height);
   if (ball.y <= 0 || ball.y + ball.height >= boadHeight) {
     ball.velocityY *= -1; //cambie de direccion
+  }
+
+  // bounce the ball back
+  if (detectCollision(ball, player1)) {
+    if (ball.x <= player1.x + player1.width) {
+      ball.velocityX *= -1;
+    }
+  }
+  else if (detectCollision(ball, player2)) {
+    if (ball.x + ballWidth >= player2.x) {
+      ball.velocityX *= -1;
+    }
+  }
+  //score
+  if (ball.x < 0) {
+    player2Score++;
+    resetGame(1);
+  }
+  else if (ball.x + ballWidth > boadWidth) {
+    player1Score++;
+    resetGame(-1);
+  }
+
+  context.font = "50px sans-serif";
+  context.fillText(player1Score, boadWidth / 5, 45);
+  context.fillText(player2Score, boadWidth * 4 / 5, 45);
+
+  //middle line
+  for (let i = 10; i < board.height; i += 25) {
+    // i = starting Y position, draw a sqare every 25
+    //(x position = half of boardwidth -10),i= y position,width = 5,height =5
+    context.fillRect(board.width / 2, i, 5, 5);
   }
 }
 //---------------------------------------------------------------------------
@@ -104,3 +143,43 @@ function detectCollision(a, b) {
     a.y + a.height > b.y //a´s bottomleft corner passes b´s top left corner
   );
 }
+//---------------------------------------------------------------------------
+function resetGame(direction) {
+  ball = {
+    x: boadWidth / 2,
+    y: boadWidth / 2,
+    width: ballWidth,
+    height: ballHeight,
+    velocityX: direction,
+    velocityY: 2,
+  };
+}
+//---------------------------------------------------------------------------
+function newGame() {
+  player1Score = 0;
+  player2Score = 0;
+
+  player1 = {
+    x: 10,
+    y: boadHeight / 2,
+    width: playerWidth,
+    height: playerHeight,
+    velocityY: playerVelocityY,
+  };
+  player2 = {
+    x: boadWidth - playerWidth - 10,
+    y: boadHeight / 2,
+    width: playerWidth,
+    height: playerHeight,
+    velocityY: playerVelocityY,
+  };
+  ball = {
+    x: boadWidth / 2,
+    y: boadWidth / 2,
+    width: ballWidth,
+    height: ballHeight,
+    velocityX: 1,
+    velocityY: 2,
+  };
+}
+
