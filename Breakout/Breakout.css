@@ -1,0 +1,44 @@
+body {
+    text-align: center;
+}
+
+#gameTitle {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: aquamarine;
+    font-size: 50px;
+}
+
+#score {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: aquamarine;
+    font-size: 30px;
+}
+
+.grid {
+    position: absolute;
+    width: 560px;
+    height: 300px;
+    border: solid 3px turquoise;
+    margin-top: 100px;
+}
+
+.player{
+    position:absolute;
+    width: 100px;
+    height: 20px;
+    background-color: gold;
+}
+.ball{
+    position:absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: purple;
+}
+
+.block{
+    position:absolute;
+    width: 100px;
+    height: 20px;
+    background-color: turquoise;
+}
