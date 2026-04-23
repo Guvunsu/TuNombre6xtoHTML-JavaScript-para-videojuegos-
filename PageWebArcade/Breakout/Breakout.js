@@ -23,6 +23,24 @@ let currentPosition = [...playerStart];
 const ballStart = [270, 40];
 let ballCurrentPosition = [...ballStart];
 
+const restartBtn = document.getElementById("restartBtn");
+
+restartBtn.addEventListener("click", restartGame);
+
+function restartGame() {
+    clearInterval(timerId);
+    grid.innerHTML = "";
+    score = 0;
+    scoreDisplay.innerHTML = score;
+    currentPosition = [...playerStart];
+    ballCurrentPosition = [...ballStart];
+    startGame();
+}
+
+function startGame() {
+    addBlock();
+    timerId = setInterval(moveBall, 30);
+}
 class Block {
     constructor(xAxis, yAxis) {
         this.bottomLeft = [xAxis, yAxis];

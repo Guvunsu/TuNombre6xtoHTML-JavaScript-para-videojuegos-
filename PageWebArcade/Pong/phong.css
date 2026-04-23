@@ -15,3 +15,32 @@ h1{
 #resetBtn{
     background-color: aquamarine;
 }
+.arcade-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+
+    padding: 10px 15px;
+    font-family: "Press Start 2P", cursive;
+    font-size: 10px;
+
+    color: cyan;
+    border: 2px solid cyan;
+    text-decoration: none;
+
+    background: transparent;
+    border-radius: 5px;
+
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.arcade-btn:hover {
+    background: cyan;
+    color: black;
+    box-shadow: 0 0 15px cyan;
+}
+
+.arcade-btn:active {
+    transform: scale(0.9);
+}
