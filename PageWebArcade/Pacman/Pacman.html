@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pacman</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 10px 20px;
+            background-color: #000000;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .instructions {
+            color: cyan;
+        }
+    </style>
+</head>
+
+<body>
+    <audio autoplay loop>
+        <source src="toby fox - UNDERTALE Soundtrack - 999 MEGALOVANIA.mp3" type="audio/mp3">
+    </audio>
+    <p style="color: rgb(72, 0, 255); font-size: 10px;">
+        Score:
+        <span id="scoreElement">0</span>
+    </p>
+
+    <h1>
+        Vidas:
+        <span id="livesElement">3</span>
+    </h1>
+
+    <canvas></canvas>
+
+    <h2 id="statusText"></h2>
+
+         <button id="restartBtn">RESTART</button>
+
+    <a href="../Arcade.html" class="arcade-btn">
+        <- Volver al Arcade </a>
+
+            <p class="instructions">
+                Teclas WASD para jugar.
+                <br>
+                RESTART para reiniciar.
+                <br>
+                Ctrl + rueda de ratón → Zoom
+            </p>
+
+            <script src="Pacman.js"></script>
+   
+</body>
+
+</html>

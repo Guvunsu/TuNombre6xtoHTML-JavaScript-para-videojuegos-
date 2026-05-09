@@ -1,20 +1,49 @@
- <!doctype html>
+<!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Pong</title>
+
     <link rel="stylesheet" href="phong.css" />
     <script src="Phong.js"></script>
-  </head>
-  <body>
-       <h1>PONG</h1>
-    <canvas id="board"> </canvas>
+</head>
+
+<body>
+
+    <audio autoplay loop id="music">
+        <source src="KEKKAI.mp3" type="audio/mp3">
+    </audio>
+
+    <script>
+        window.addEventListener("click", () => {
+            const music = document.getElementById("music");
+
+            music.play().catch(error => {
+                console.log("Autoplay bloqueado:", error);
+            });
+
+        }, { once: true });
+    </script>
+
+    <h1>PONG</h1>
+
+    <canvas id="board"></canvas>
+
     <br>
+
     <p class="instructions">
-    Usa el mouse / teclado para jugar. Presiona RESTART para reiniciar.
-</p>
-    <button id ="resetBtn">RESTART </button>
-      <a href="../Arcade.html" class="arcade-btn">⬅ Volver al Arcade</a>
-  </body>
+        Usa el mouse / teclado para jugar.
+        Presiona RESTART para reiniciar.
+    </p>
+
+    <button id="resetBtn">RESTART</button>
+
+    <a href="../Arcade.html" class="arcade-btn">
+        ⬅ Volver al Arcade
+    </a>
+
+</body>
+
 </html>

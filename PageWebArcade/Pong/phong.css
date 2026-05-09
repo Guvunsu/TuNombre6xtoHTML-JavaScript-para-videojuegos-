@@ -44,3 +44,7 @@ h1{
 .arcade-btn:active {
     transform: scale(0.9);
 }
+
+#music {
+    display: none;
+}

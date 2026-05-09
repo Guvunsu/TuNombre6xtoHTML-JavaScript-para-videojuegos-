@@ -37,9 +37,15 @@ let ball = {
 };
 let player2Score = 0;
 let player1Score = 0;
+let hitSound = new Audio("Sword Sound Effect.mp3");
 
 //--------------------------------------------------------------------------
 window.onload = function () {
+  document.addEventListener("click", () => {
+    hitSound.play();
+    hitSound.pause();
+    hitSound.currentTime = 0;
+}, { once: true });
   board = document.getElementById("board");
   restartButton = document.querySelector("#resetBtn");
   board.height = boadHeight;
@@ -87,11 +93,15 @@ function update() {
   if (detectCollision(ball, player1)) {
     if (ball.x <= player1.x + player1.width) {
       ball.velocityX *= -1;
+          hitSound.currentTime = 2;
+        hitSound.play();
     }
   }
   else if (detectCollision(ball, player2)) {
     if (ball.x + ballWidth >= player2.x) {
       ball.velocityX *= -1;
+          hitSound.currentTime = 2;
+        hitSound.play();
     }
   }
   //score

@@ -1,5 +1,10 @@
 body {
-    background-color: #0b2e49;
+    background-image: url("BG.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
     color: #fefefe;
     font-family: "Press Start 2P", cursive;
     text-align: center;
@@ -9,29 +14,58 @@ body {
     flex-direction: column;
     align-items: center;
 }
-
+h0{
+       margin-top: 50px;
+    color: #ff0000;
+    text-shadow: 2px 2px 0px #0ffff0, 0 0 20px #f0f;
+    font-size: 36px;
+}
 h1 {
     margin-top: 50px;
-    color: fuchsia;
-    text-shadow: 2px 2px 0px #0ffff0, 0 0 20px#f0f;
+    color: #ffae00;
+    text-shadow: 2px 2px 0px #0ffff0, 0 0 20px #f0f;
     font-size: 36px;
 }
 
-.lavishly-yours-regular {
-    font-family: "Lavishly Yours", cursive;
-    font-weight: 400;
-    font-style: normal;
+h2 {
+    color: #00ff51;
+    text-shadow: 2px 2px 0px cyan;
 }
 
+h3 {
+    color: #00fff7;
+    text-shadow: 2px 2px 0px black;
+}
+
+h4 {
+    color: #006eff;
+    text-shadow: 2px 2px 0px black;
+}
+
+h5 {
+    color: #0008ff;
+    text-shadow: 2px 2px 0px black;
+}
+
+h6 {
+    color: #ff00d9;
+    text-shadow: 2px 2px 0px black;
+}
+
+h7 {
+    color: #ff0000;
+    text-shadow: 2px 2px 0px black;
+}
 .arcade-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
 
     width: 100%;
-    max-width: 1200px; 
+    max-width: 1200px;
     padding: 40px 20px;
 }
+
 .game-card {
     background: #111;
     padding: 20px;
@@ -41,7 +75,7 @@ h1 {
     flex-direction: column;
     justify-content: space-between;
 
-    min-height: 420px; 
+    min-height: 420px;
 
     border: 2px solid transparent;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
@@ -70,23 +104,17 @@ h1 {
 }
 
 .game-card p {
-    font-family: press start 2p, cursive;
     color: rgb(72, 100, 241);
     font-size: 14px;
     line-height: 1.5;
     margin-bottom: 15px;
-    box-shadow: 0 0px 30px rgb(86, 111, 237);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .game-card i {
-    font-family: press start 2p, cursive;
     color: yellow;
     font-size: 14px;
     line-height: 1.5;
     margin-bottom: 15px;
-    box-shadow: 0 0px 30px yellow;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .play-button {
@@ -111,8 +139,6 @@ h1 {
     box-shadow: 0 0 15px #ff00ff;
 }
 
-
-
 footer {
     margin-top: auto;
     width: 100%;
@@ -120,10 +146,8 @@ footer {
     background-color: #000000;
     border-top: 2px dashed rgb(51, 255, 0);
     color: #fefefe;
-    font-family: "Press Start 2P", cursive;
     text-align: center;
     box-shadow: 0 0px 15px rgb(1, 224, 244);
-    font-size: 10 px;
 }
 
 footer p {
@@ -131,12 +155,4 @@ footer p {
     margin-bottom: 15px;
     line-height: 1.5;
     font-size: 12px;
-}
-
-.social-links a {
-    color: #8e4ece;
-    text-decoration: none;
-    margin: 0 10px;
-    font-size: 14px;
-    transition: color 0.3s ease;
 }

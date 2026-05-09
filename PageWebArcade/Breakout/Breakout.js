@@ -13,6 +13,8 @@ let yDirection = 2;
 
 let score = 0;
 let timerId;
+let paddleSound = new Audio("CuakMeme.mp3");
+let blockSound = new Audio("Bruh.mp3");
 
 let player;
 let ball;
@@ -26,6 +28,8 @@ let ballCurrentPosition = [...ballStart];
 const restartBtn = document.getElementById("restartBtn");
 
 restartBtn.addEventListener("click", restartGame);
+
+
 
 function restartGame() {
     clearInterval(timerId);
@@ -132,8 +136,10 @@ function checkForCollisions() {
         ) {
             allBlocks[i].classList.remove('block');
             blocks.splice(i, 1);
-
             changeDirection();
+
+            blockSound.currentTime = 6;
+            blockSound.play().catch(() => { });
 
             score++;
             scoreDisplay.innerHTML = score;
@@ -162,6 +168,9 @@ function checkForCollisions() {
         ballCurrentPosition[1] < currentPosition[1] + blockHeight
     ) {
         changeDirection();
+
+        paddleSound.currentTime = 0;
+        paddleSound.play().catch(() => { });
     }
 
     // game over
@@ -181,3 +190,10 @@ function changeDirection() {
 // INIT
 addBlock();
 timerId = setInterval(moveBall, 30);
+
+document.addEventListener("click", () => {
+
+    paddleSound.volume = 1;
+    blockSound.volume = 1;
+
+}, { once: true });
