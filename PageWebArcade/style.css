@@ -139,6 +139,72 @@ h7 {
     box-shadow: 0 0 15px #ff00ff;
 }
 
+credits-section{
+    width: 100%;
+    padding: 80px 20px;
+    background: linear-gradient(180deg,#111,#1b1b1b);
+    color: white;
+    text-align: center;
+}
+
+.credits-title{
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #ffd54a;
+    text-shadow: 0px 0px 12px rgba(255,213,74,0.6);
+}
+
+.credits-text{
+    max-width: 900px;
+    margin: auto;
+    margin-bottom: 50px;
+    font-size: 1.1rem;
+    color: #d0d0d0;
+    line-height: 1.8;
+}
+
+.credits-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+}
+
+.credit-card{
+    width: 280px;
+    padding: 25px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: 0.3s;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.3);
+}
+
+.credit-card:hover{
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0px 0px 20px rgba(255,213,74,0.3);
+}
+
+.credit-card h3{
+    color: #ffd54a;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.credit-card p{
+    color: #d8d8d8;
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+.credits-footer{
+    margin-top: 50px;
+    color: #a0a0a0;
+    font-style: italic;
+    font-size: 1rem;
+}
+
 footer {
     margin-top: auto;
     width: 100%;
